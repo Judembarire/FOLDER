@@ -1,0 +1,116 @@
+<<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To The Lovely Janelle</title>
+    <style>
+        body {
+            text-align: center;
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(to right, #ff007f, #e74c3c, #9b59b6);
+            color: #fff;
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .container {
+            border-radius: 10px;
+            background-color: #fff;
+            padding: 30px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+            width: 80%;
+            max-width: 600px;
+            animation: fadeIn 1s ease-out;
+        }
+        h1 {
+            color: #ff007f;
+            font-size: 28px;
+            margin-bottom: 20px;
+        }
+        p {
+            font-size: 18px;
+            color: #555;
+            line-height: 1.6;
+        }
+        .btn-container {
+            display: flex;
+            justify-content: space-around;
+            margin-top: 20px;
+            animation: slideInUp 1s ease-out;
+        }
+        button {
+            background-color: #e74c3c;
+            color: #fff;
+            padding: 12px 24px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s ease;
+        }
+        button:hover {
+            background-color: #c0392b;
+        }
+        #valentineMessage {
+            margin-top: 20px;
+            animation: fadeIn 1s ease-out;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        @keyframes slideInUp {
+            from {
+                transform: translateY(20px);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Janelle Will You Be My Valentine?</h1>
+        <div class="btn-container">
+            <button type="button" onclick="generateMessage('Yes')">Yes</button>
+            <button type="button" onclick="moveNoButton()">No</button>
+        </div>
+        <div id="valentineMessage"></div>
+    </div>
+
+    <script>
+        function generateMessage(response) {
+            var message = '';
+            if (response === 'Yes') {
+                message = `<p>  I Know i've been an asshole and very dumb and thats on me. Since you've already said Yes all i want is just one more chance: HAPPY VALENTINES BABY  </p>
+                            <p> I HOPE THE BAR HAS BEEN SET :) THIS TOOK WAY TOO MUCH TIME <3 </p>`;
+            } else {
+                message = `<p>It's okay, I understand. Wishing you a wonderful Valentine's Day!</p>`;
+            }
+
+            document.getElementById('valentineMessage').innerHTML = message;
+        }
+
+        function moveNoButton() {
+            var noButton = document.querySelector('.btn-container button:last-child');
+            var randomX = Math.floor(Math.random() * 60) - 30; // Random value between -30 and 30
+            var randomY = Math.floor(Math.random() * 60) - 30; // Random value between -30 and 30
+
+            noButton.style.transform = `translate(${randomX}px, ${randomY}px)`;
+        }
+    </script>
+</body>
+</html>
